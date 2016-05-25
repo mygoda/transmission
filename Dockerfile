@@ -15,14 +15,12 @@ RUN add-apt-repository -y ppa:transmissionbt/ppa && \
 # Add Setting file
 ADD ./settings.json /etc/transmission-daemon/settings.json
 ADD ./run.sh /run.sh
-RUN mkdir -p /var/lib/transmission-daemon/incomplete 
-RUN chown -R root:root /var/lib/transmission-daemon 
-RUN chown -R root:root /etc/transmission-daemon
+#RUN mkdir -p /var/lib/transmission-daemon/incomplete
+#RUN chown -R root:root /var/lib/transmission-daemon
+#RUN chown -R root:root /etc/transmission-daemon
 
 # port 
-EXPOSE 9091
+EXPOSE 9095
 EXPOSE 64321
-
-VOLUME ["/var/lib/transmission-daemon/downloads"]
 
 CMD ["sh","run.sh"]
